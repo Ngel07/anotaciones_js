@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Este es un ejemplo de una clase
+        class Animal {
+            constructor(nombre, especie, edad, hobbies) {
+                this.nombre = nombre;
+                this.especie = especie;
+                this.edad = edad;
+                this.hobbies = hobbies;
+            }
+            saludar() {
+                console.log(`Hola me llamo  ${this.nombre} y soy un ${this.especie}`);
+            }
+            // Este método es un ejemplo de método estático
+            static saludoGeneral() {
+                console.log("Hola, todos soy animales!");
+            }
+            // Este método es un ejemplo de método privado
+            _mostrarEdad() {
+                console.log(`Mi edad es ${this.edad}`);
+            }
+            // Este método es un ejemplo de método protegido
+            get mostrarEdad() {
+                return this._mostrarEdad();
+            }
+            // Este método es un ejemplo de método abstracto
+            //abstract mostrarInformacion();
+            
+            // Este método es un ejemplo de método getter y setter
+            get nombre() {
+                return this._nombre;
+            }
+            set nombre(nombre) {
+                this._nombre = nombre;
+            }
+            // Este método es un ejemplo de método de extensión
+            static extensionSaludo() {
+                console.log("Hola, soy una clase estática");
+            }
+            // Este método es un ejemplo de método de sobrecarga
+            saludar(saludo) {
+                console.log(saludo);
+            }
+            // Este método es un ejemplo de método de sobrecarga con sobrecarga de operador
+            static saludar(nombre, especie) {
+                console.log(`Hola, me llamo ${nombre} y soy un ${especie}`);
+            }
+            // Este método es un ejemplo de método de retorno de objeto
+            static crearAnimal(nombre, especie, edad) {
+                return new Animal(nombre, especie, edad, []);
+            }
+        }
+    </script>
+</body>
+</html>

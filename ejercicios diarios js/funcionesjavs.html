@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+// funcion declarada
+
+function funcionDeclarada(){
+    console.log("uno")
+    console.log("dos")
+    console.log("tres")
+}
+
+//invocacion de la funcion
+funcionDeclarada()
+funcionDeclarada()
+
+
+function queDevuelveValor (){
+    console.log("cuatro")
+    console.log("cinco")
+    console.log("seis")
+    return "retorna una cadena de texto"
+}
+
+let retornoDeLaFuncion = valorQueRetornaLaFuncion ();
+
+console.log(valorQueRetornaLaFuncion)
+
+    function find_max(nums) {
+        let max_num = Number.NEGATIVE_INFINITY; // smaller than all other numbers
+        for (let num of nums) {
+        if (num > max_num) {
+            
+        }
+        }
+        return max_num;
+    }
+
+     // Este es un ejemplo de una arrow function
+     let saludar = (nombre, especie) => {
+            console.log(`Hola, me llamo ${nombre} y soy un ${especie}`);
+        }
+        
+        saludar("Snoopy", "perro");
+        
+        saludar("Buddy", "perro");
+
+        // Este es un ejemplo de una función flecha con parámetros
+        let sumar = (a, b) => a + b;
+        
+        console.log(sumar(5, 3));
+
+        // Este es un ejemplo de una función flecha sin parámetros
+        let saludarTodos = () => console.log("Hola, todos!");
+        
+        saludarTodos();
+     // Este es un ejemplo de una función de orden superior
+     function saludarConDelay(nombre, especie, tiempo) {
+            setTimeout(() => {
+                console.log(`Hola, me llamo ${nombre} y soy un ${especie}`);
+            }, tiempo);
+        }
+        
+        saludarConDelay("Snoopy", "perro", 2000);
+        
+        saludarConDelay("Buddy", "perro", 1000);
+        
+        // Este es un ejemplo de una función de orden superior con parámetros
+        function sumarConDelay(a, b, tiempo) {
+            setTimeout(() => {
+                console.log(a + b);
+            }, tiempo);
+        }
+        
+        sumarConDelay(5, 3, 3000);
+        
+        // Este es un ejemplo de una función de orden superior con retorno
+        function multiplicarConDelay(a, b, tiempo, callback) {
+            setTimeout(() => {
+                callback(a * b);
+            }, tiempo);
+        }
+        
+        multiplicarConDelay(5, 3, 2000, resultado => {
+            console.log(resultado);
+        });
+        
+        // Este es un ejemplo de una función de orden superior con error
+        function dividirConDelay(a, b, tiempo, callback) {
+            setTimeout(() => {
+                if (b === 0) {
+                    throw new Error("No se puede dividir por cero");
+                }
+                callback(a / b);
+            }, tiempo);
+        }
+        
+        dividirConDelay(5, 0, 1000, resultado => {
+            console.log(resultado);
+        });
+        
+        // Este es un ejemplo de una función de orden superior con retorno y error
+        function restarConDelay(a, b, tiempo, callback) {
+            setTimeout(() => {
+                if (isNaN(a) || isNaN(b)) {
+                    throw new Error("Los valores ingresados no son numéricos");
+                }
+                callback(a - b);
+            }, tiempo);
+        }
+        
+        restarConDelay("5", 3, 2000, resultado => {
+            console.log(resultado);
+        });
+    </script>
+</body>
+</html>
+
+
+

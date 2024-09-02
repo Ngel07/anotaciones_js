@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    try {
+    console.log("Aquí se agrega el código a evaluar");
+        
+    } catch (error) {
+        console.error("Error durante la evaluación del código:", error);
+        console.log("El código no se ha ejecutado");
+        
+    }finally {
+        console.log("Este código se ejecuta siempre después del try-catch, indiferente de si hay error");
+        // Aquí se puede agregar código que se ejecuta después del try/catch/finally
+
+    }
+
+    // Ejemplos de captura de errores:
+    // En este caso  se muestra un error cuando el caracter no es numérico
+    try {
+
+        let x = "v";
+        
+        if(isNaN(x)){
+            throw new Error("El caracter ingresado no es válido");
+        }
+
+        console.log(x * x);
+    } catch (error) {
+        console.log(`Se produjo un error: ${error}`);
+    };
+
+
+        
+        </script>
+</body>
+</html>

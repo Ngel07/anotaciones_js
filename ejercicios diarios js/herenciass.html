@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function Animal(nombre, especie, edad, hobbies) {
+    this.nombre = nombre;
+    this.especie = especie;
+    this.edad = edad;
+    this.hobbies = hobbies;
+}
+
+Animal.prototype.saludar = function() {
+    console.log(`Hola me llamo  ${this.nombre} y soy un ${this.especie}`);
+}
+
+/*
+// este es un ejemplo de herencia
+function Perro(nombre, edad) {
+            Animal.call(this, nombre, "perro", edad, ["pelota", "correr", "jugar con los niños"]);
+        }
+        
+        Perro.prototype = Object.create(Animal.prototype);
+        Perro.prototype.constructor = Perro;
+        
+        let snoopy = new Perro("Snoopy", "perro");
+        snoopy.saludar();
+*/
+// Otro ejemplo de herencia prototipica
+
+function Perro(nombre, especie, edad, hobbies, tamanho){
+            this.super = Animal;
+            this.super(nombre, especie, edad, hobbies);
+            this.tamanho = tamanho;//agregamos este parámetro a elemento hijo         
+        };
+
+
+//Perro está heredando de Animal podtrá utilizar los método de padre o sobreescribir
+Perro.prototype = new Animal();
+Perro.prototype.constructor = Perro;
+
+//Sobreescritura del método prototipo padre en el hijo
+Perro.prototype.saludar = function(){
+    console.log(`Hola, me llamo ${this.nombre} y soy un ${this.especie} y ladro`);
+}
+
+Perro.prototype.ladrar = function(){
+    console.log("Guau!");//agregamos este método aplicando herencia
+}
+
+let perro1 = new Perro ("Snoopy", "perro", 5, ["pelota", "correr", "dormir"],"mediano");
+let perro2 = new Animal("Buddy", "perro", 3, ["pelota", "correr", "jugar con los niños"], "pequeño");
+
+console.log(perro1)
+console.log(perro2);
+perro1.saludar();
+perro2.saludar();
+
+
+    </script>
+
+</body>
+</html>
+
+        

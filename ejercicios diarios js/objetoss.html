@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* Protopipo general
+        const animal = {
+        nombre: "Snoopy",
+        sonar (){
+        console.log("El perro está sonando")
+        };
+        */
+        /*
+        // Prototipo específico
+        const perro = Object.create(animal);
+        perro.sonar = function() {
+        console.log("El perro está sonando");
+        };
+        */
+
+
+
+        // Este es un ejemplo de un objeto
+        let animal = {
+            nombre: "Snoopy",
+            especie: "perro",
+            edad: 5,
+            hobbies: ["pelota", "correr", "dormir"],
+            saludar: function() {
+                console.log(`Hola, me llamo ${this.nombre}  y soy un ${this.especie}`);
+            }
+        };
+
+        animal.saludar();
+
+        // Este es un ejemplo de un array de objetos
+        let animales = [
+            {
+                nombre: "Snoopy",
+                especie: "perro",
+                edad: 5,
+                hobbies: ["pelota", "correr", "dormir"]
+            },
+            {
+                nombre: "Buddy",
+                especie: "perro",
+                edad: 3,
+                hobbies: ["pelota", "correr", "jugar con los niños"]
+            }
+        ];
+
+        animales.forEach(animal => {
+            console.log(`Hola, me llamo ${animal.nombre} y soy un ${animal.especie}`);
+        });
+        /*
+        // Este es un ejemplo de una función constructora
+        function Animal(nombre, especie, edad, hobbies) {
+            this.nombre = nombre;
+            this.especie = especie;
+            this.edad = edad;
+            this.hobbies = hobbies;
+            //método de esta funcion constructora -ojo siempre comienza con this-
+            this.saludar = function() {
+                console.log(`Hola, me llamo ${this.nombre} y soy un ${this.especie}`);
+            }
+        }
+        //aquí está creando el objeto basados en la funcion constructora Animal 
+        let perro = new Animal("Snoopy", "perro", 5, ["pelota", "correr", "dormir"]);
+        perro.saludar();
+        
+        let perro2 = new Animal("Buddy", "perro", 3, ["pelota", "correr", "jugar con los niños"]);
+        perro2.saludar();
+
+        console.log(perro);
+        console.log(perro2);
+
+        perro.saludar();
+        perro2.saludar();*/
+        /* la problemática de poner las funciones dentro de la funcion 
+        constructora es que este se duplicará para cada objeto 
+        causando duplicaciones en el código para esto sacaremos los métodos de 
+        la función constructora asigando los métodos a los prototipos*/
+
+        //este es el ejemplo de la funcion cosntructora con los métodos asignados al protopipo
+        function Animal(nombre, especie, edad, hobbies) {
+            //Estos son los atributos de la funcion constructora
+            this.nombre = nombre;
+            this.especie = especie;
+            this.edad = edad;
+            this.hobbies = hobbies;
+        }
+        
+        //aquí está creando el objeto basados en la funcion constructora Animal 
+        let perro = new Animal("Snoopy", "perro", 5, ["pelota", "correr", "dormir"]);
+        let perro2 = new Animal("Buddy", "perro", 3, ["pelota", "correr", "jugar con los niños"]);
+
+        //aquí estoy asignando los métodos fuera de la funcion cosntructora, optimizando el código
+        Animal.prototype.saludar = function() {
+            console.log(`Hola me llamo  ${this.nombre} y soy un ${this.especie}`);
+        }
+        
+        Console.log(perro)
+        console.log(perro2);
+        perro.saludar();
+        perro2.saludar();
+
+
+      
+        //Este es otro ejemplo de un prototipo
+        Animal.prototype.mostrarEdad = function() {
+            console.log(`Mi edad es ${this.edad}`);
+        }
+        
+        perro.mostrarEdad();
+        
+        perro2.mostrarEdad();
+
+
+
+        
+        // Este es un ejemplo de un método estático
+        Animal.saludoGeneral = function() {
+            console.log("Hola, todos soy animales!");
+        }
+        
+        Animal.saludoGeneral();
+
+        
+
+
+
+
+       
+
+        
+    </script>
+</body>
+</html>
